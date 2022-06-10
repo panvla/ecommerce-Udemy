@@ -9,7 +9,7 @@
         <module name="ecommerce" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11">
       <module name="ecommerce" target="11" />
     </bytecodeTargetLevel>
   </component>
