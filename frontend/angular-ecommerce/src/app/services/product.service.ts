@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
 import { Product } from '../common/product';
 import { ProductCategory } from '../common/product-category';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,6 +50,16 @@ export class ProductService {
 
     return this.getProducts(searchUrl);
   }
+
+  searchProductsPaginate(thePage: number, thePageSize: number, theKeyword: string): Observable<GetResponseProducts>{
+    
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`
+                    + `&page=${thePage}&size=${thePageSize}`;
+
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
+
+  }
+
 
   getProduct(theProductId: number): Observable<Product>{
 
